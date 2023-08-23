@@ -48,7 +48,7 @@
 	position: fixed;
 	right: 0;
 	bottom: 0;
-	font-size: 8px;
+	font-size: 6px;
 	margin: 0 10px;
 	color: #fff;
 }
@@ -64,6 +64,9 @@
 }
 
 @media screen and (min-width: 768px) {
+	.copyright {
+		font-size: 8px;
+	}
 	.wrapper-notif {
 		.notification {
 			font-size: 1.5em;

@@ -6,7 +6,7 @@ export default function Modal() {
 		<div className="modal-bg">
 			<div className="modal">
 				<div className="content">
-					<img src="yey.gif" alt="" />
+					<img className="yey-img" src="yey.gif" alt="" />
 					<p>{text}</p>
 					<button className="closeBtn">X</button>
 				</div>

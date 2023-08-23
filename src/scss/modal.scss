@@ -73,9 +73,11 @@
 
 .content {
 	p {
+		font-size: 1em;
 		font-weight: bold;
 	}
 	img {
+		width: 30vw;
 		padding: 0.5em 0;
 	}
 }
@@ -101,6 +103,14 @@
 }
 
 @media screen and (min-width: 768px) {
+	.content {
+		p {
+			font-size: 2em;
+		}
+		img {
+			width: inherit;
+		}
+	}
 	.modal {
 		width: 500px;
 		height: fit-content;

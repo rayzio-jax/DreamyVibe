@@ -48,10 +48,11 @@
 	font-family: "Rubik", sans-serif;
 	outline: none;
 	padding: 0.5em;
-	font-size: 2em;
+	font-size: 1.5em;
 	box-shadow: 4px 4px 12px rgba($color: #000000, $alpha: 0.2);
 	transition: all 0.2s ease-out;
 	&.yes {
+		padding: 0.5em 1em;
 		background-color: #fff;
 		&.yes:hover {
 			background-color: #5cf60a;
@@ -78,6 +79,9 @@
 }
 
 @media screen and (min-width: 768px) {
+	.button {
+		font-size: 2em;
+	}
 	.hanako-img {
 		width: inherit;
 	}
