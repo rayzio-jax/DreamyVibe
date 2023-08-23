@@ -1,0 +1,38 @@
+@import "./base/base";
+
+// first container
+.container {
+	transition: all 1s ease-out;
+	position: relative;
+	height: 100vh;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+}
+
+.downarrow-icon {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	font-size: 3em;
+	color: #fff;
+	:active {
+		transition: transform 0.1s ease-in-out;
+		transform: scale(0.9);
+	}
+	:hover {
+		transition-duration: 300ms;
+		color: darken($color: #fff, $amount: 20%);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.downarrow-icon {
+		font-size: 4em;
+	}
+}
