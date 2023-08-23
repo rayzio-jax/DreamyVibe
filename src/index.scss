@@ -13,11 +13,21 @@ html {
 		url("https://images.pexels.com/photos/1631065/pexels-photo-1631065.jpeg?cs=srgb&dl=pexels-magda-ehlers-1631065.jpg&fm=jpg")
 			no-repeat;
 	background-size: auto;
-	background-position-y: 30%;
+	background-position: 30%;
+	background-attachment: fixed;
 	font-family: "Rubik", sans-serif;
 
 	body {
 		position: relative;
 		overflow: hidden;
 	}
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+	background: none;
+	border: 0;
 }

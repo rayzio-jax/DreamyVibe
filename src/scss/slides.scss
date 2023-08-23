@@ -19,15 +19,54 @@
 	left: 0;
 	right: 0;
 	margin: 0 auto;
-	font-size: 3em;
+	font-size: 5em;
 	color: #fff;
+	transition: transform 0.1s ease-in-out;
 	:active {
-		transition: transform 0.1s ease-in-out;
 		transform: scale(0.9);
 	}
 	:hover {
-		transition-duration: 300ms;
+		transition: color 300ms ease-out;
 		color: darken($color: #fff, $amount: 20%);
+	}
+}
+
+.btn-container {
+	display: flex;
+	column-gap: 20px;
+}
+
+.button {
+	border-radius: 20px;
+	font-family: "Rubik", sans-serif;
+	outline: none;
+	padding: 0.5em;
+	font-size: 2em;
+	box-shadow: 4px 4px 12px rgba($color: #000000, $alpha: 0.2);
+	transition: all 0.2s ease-out;
+	&.yes {
+		background-color: #fff;
+		&.yes:hover {
+			background-color: #5cf60a;
+			color: #fff;
+			cursor: pointer;
+		}
+		&.yes:active {
+			transform: scale(0.9);
+			border: 2px solid #21a005;
+		}
+	}
+	&.no {
+		background-color: #fff;
+		&.no:hover {
+			background-color: #ed0f0f;
+			color: #fff;
+			cursor: pointer;
+		}
+		&.no:active {
+			transform: scale(0.9);
+			border: 2px solid #880505;
+		}
 	}
 }
 
