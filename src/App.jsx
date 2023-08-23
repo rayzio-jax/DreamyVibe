@@ -33,7 +33,7 @@ export default function App() {
 	};
 
 	function playAudio() {
-		const audio = new Audio("srcassetsdori_2O'CLOCK.mp3");
+		const audio = new Audio("/rayzio-jax/src/assets/dori_2O'CLOCK.mp3");
 		audio.loop = true;
 		audio.play();
 	}
