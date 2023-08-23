@@ -73,7 +73,7 @@
 
 .content {
 	p {
-		font-size: 1em;
+		font-size: 0.8em;
 		font-weight: bold;
 	}
 	img {
@@ -105,10 +105,10 @@
 @media screen and (min-width: 768px) {
 	.content {
 		p {
-			font-size: 2em;
+			font-size: 1em;
 		}
 		img {
-			width: inherit;
+			width: initial;
 		}
 	}
 	.modal {
