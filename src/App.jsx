@@ -3,7 +3,6 @@ import FirstSlide from "./component/FirstSlide";
 import SecondSlide from "./component/SecondSlide";
 import ThirdSlide from "./component/ThirdSlide";
 import FourthSlide from "./component/FourthSlide";
-import $ from "jquery";
 
 export default function App() {
 	const ref0 = useRef(null);
