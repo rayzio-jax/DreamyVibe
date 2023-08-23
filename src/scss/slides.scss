@@ -11,6 +11,10 @@
 	justify-content: center;
 	align-items: center;
 	color: #fff;
+
+	.hanako-img {
+		width: 30vw;
+	}
 }
 
 .downarrow-icon {
@@ -74,6 +78,9 @@
 }
 
 @media screen and (min-width: 768px) {
+	.hanako-img {
+		width: inherit;
+	}
 	.downarrow-icon {
 		font-size: 4em;
 	}
