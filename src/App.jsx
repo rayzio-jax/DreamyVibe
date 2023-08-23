@@ -33,7 +33,7 @@ export default function App() {
 	};
 
 	function playAudio() {
-		const audio = new Audio("../assets/dori_2O'CLOCK.mp3");
+		const audio = new Audio("dori_2O'CLOCK.mp3");
 		audio.loop = true;
 		audio.play();
 	}
