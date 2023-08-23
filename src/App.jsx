@@ -7,6 +7,8 @@ import Notification from "./component/Notification";
 import Copyright from "./component/Copyright";
 import $ from "jquery";
 
+import "./scss/App.scss";
+
 export default function App() {
 	$(window).on("load", () => {
 		window.scrollTo(0, 0);

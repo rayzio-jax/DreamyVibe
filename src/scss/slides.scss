@@ -2,90 +2,111 @@
 
 // first container
 .container {
-	transition: all 1s ease-out;
 	position: relative;
 	height: 100vh;
-	text-align: center;
+	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 	color: #fff;
+	transition: all 1s ease-out;
 
-	.hanako-img {
-		width: 30vw;
-	}
-}
-
-.downarrow-icon {
-	width: fit-content;
-	height: fit-content;
-	position: absolute;
-	bottom: 50px;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	font-size: 5em;
-	color: #fff;
-	transition: transform 0.1s ease-in-out;
-	:active {
-		transform: scale(0.9);
-	}
-	:hover {
-		transition: color 300ms ease-out;
-		color: darken($color: #fff, $amount: 20%);
-	}
-}
-
-.btn-container {
-	display: flex;
-	flex-direction: column;
-	row-gap: 20px;
-}
-
-.button {
-	border-radius: 20px;
-	font-family: "Rubik", sans-serif;
-	outline: none;
-	padding: 0.5em;
-	font-size: 1.5em;
-	box-shadow: 4px 4px 12px rgba($color: #000000, $alpha: 0.2);
-	transition: all 0.2s ease-out;
-	&.yes {
-		padding: 0.5em 1em;
-		background-color: #fff;
-		&.yes:hover {
-			background-color: #5cf60a;
-			color: #fff;
-			cursor: pointer;
-		}
-		&.yes:active {
+	.downarrow-icon {
+		width: fit-content;
+		height: fit-content;
+		position: absolute;
+		bottom: 100px;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		font-size: 3.5em;
+		color: #fff;
+		transition: transform 0.1s ease-in-out;
+		&:active {
 			transform: scale(0.9);
-			border: 2px solid #21a005;
+		}
+		&:hover {
+			transition: color 300ms ease-out;
+			color: darken($color: #fff, $amount: 20%);
 		}
 	}
-	&.no {
-		background-color: #fff;
-		&.no:hover {
-			background-color: #ed0f0f;
-			color: #fff;
-			cursor: pointer;
+
+	.btn-container {
+		display: flex;
+		flex-direction: column;
+		row-gap: 20px;
+
+		.button {
+			white-space: nowrap;
+			border-radius: 20px;
+			font-family: "Rubik", sans-serif;
+			outline: none;
+			padding: 0.5em;
+			font-size: 1.5em;
+			box-shadow: 4px 4px 12px rgba($color: #000000, $alpha: 0.2);
+			transition: all 0.2s ease-out;
+			&.yes {
+				padding: 0.5em 1em;
+				background-color: #fff;
+				&:hover {
+					background-color: #5cf60a;
+					color: #fff;
+					cursor: pointer;
+				}
+				&:active {
+					transform: scale(0.9);
+					border: 2px solid #21a005;
+				}
+			}
+			&.no {
+				background-color: #fff;
+				&hover {
+					background-color: #ed0f0f;
+					color: #fff;
+					cursor: pointer;
+				}
+				&:active {
+					transform: scale(0.9);
+					border: 2px solid #880505;
+				}
+			}
 		}
-		&.no:active {
-			transform: scale(0.9);
-			border: 2px solid #880505;
+	}
+
+	.wrapper {
+		position: absolute;
+		top: 20vh;
+
+		img {
+			width: 30vw;
+		}
+
+		h1 {
+			font-size: 2em;
 		}
 	}
 }
 
 @media screen and (min-width: 768px) {
-	.button {
-		font-size: 2em;
-	}
-	.hanako-img {
-		width: inherit;
-	}
-	.downarrow-icon {
-		font-size: 4em;
+	.container {
+		.downarrow-icon {
+			font-size: 4em;
+		}
+		.btn-container {
+			.button {
+				font-size: 2em;
+			}
+		}
+		.wrapper {
+			img {
+				width: 200px;
+			}
+
+			h1 {
+				font-size: 3em;
+			}
+		}
 	}
 }

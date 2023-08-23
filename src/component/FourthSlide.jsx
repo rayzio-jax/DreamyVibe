@@ -2,6 +2,8 @@ import Modal from "./Modal";
 import PropTypes from "prop-types";
 import $ from "jquery";
 
+import "../scss/slides.scss";
+
 FourthSlide.propTypes = {
 	slide: PropTypes.any,
 	event: PropTypes.any,
@@ -9,15 +11,15 @@ FourthSlide.propTypes = {
 
 export default function FourthSlide(props) {
 	$(window).on("load", () => {
-		const wrapper = $("#wrapper");
-		const noBtn = $("#no-btn");
+		const wrapper = $(".container");
+		const noBtn = $(".no");
 
 		noBtn.on("click", () => {
-			var maxX = wrapper.width() - noBtn.width();
-			var maxY = wrapper.height() - noBtn.height();
+			var maxX = wrapper.width() - noBtn.width() * 500;
+			var maxY = wrapper.height() - noBtn.height() * 500;
 
-			var newX = Math.floor(Math.random() * maxX);
-			var newY = Math.floor(Math.random() * maxY);
+			var newX = Math.random() * maxX;
+			var newY = Math.random() * maxY;
 
 			$(noBtn).css({
 				position: "absolute",
@@ -27,11 +29,16 @@ export default function FourthSlide(props) {
 		});
 
 		noBtn.on("mouseover", () => {
-			var maxX = wrapper.width() - noBtn.width();
-			var maxY = wrapper.height() - noBtn.height();
+			const maxX = wrapper.width() - noBtn.width() * 2;
+			const maxY = wrapper.height() - noBtn.height() * 2;
 
-			var newX = Math.floor(Math.random() * maxX) + 1;
-			var newY = Math.floor(Math.random() * maxY) + 1;
+			let newX = Math.random() * maxX;
+			let newY = Math.random() * maxY;
+
+			if (newX > maxX + 10 || newY > maxY + 10) {
+				let newX = newX * 1.5;
+				let newY = newY * 1.5;
+			}
 
 			$(noBtn).css({
 				position: "absolute",
@@ -80,7 +87,7 @@ export default function FourthSlide(props) {
 	});
 
 	return (
-		<div ref={props.slide} id="wrapper" className="container">
+		<div ref={props.slide} className="container">
 			<h1>Jalan yuk, mau ya?</h1>
 			<div className="btn-container">
 				<button id="yes-btn" className="button yes">
