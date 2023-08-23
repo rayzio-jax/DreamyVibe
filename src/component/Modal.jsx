@@ -6,7 +6,7 @@ export default function Modal() {
 		<div className="modal-bg">
 			<div className="modal">
 				<div className="content">
-					<img src="/rayzio-jax/assets/yey.gif" alt="" />
+					<img src="../assets/yey.gif" alt="" />
 					<p>{text}</p>
 					<button className="closeBtn">X</button>
 				</div>
