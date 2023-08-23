@@ -1,4 +1,3 @@
-import "../scss/slides.scss";
 import PropTypes from "prop-types";
 
 ThirdSlide.propTypes = {

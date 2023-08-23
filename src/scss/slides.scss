@@ -14,6 +14,8 @@
 }
 
 .downarrow-icon {
+	width: fit-content;
+	height: fit-content;
 	position: absolute;
 	bottom: 50px;
 	left: 0;
@@ -33,7 +35,8 @@
 
 .btn-container {
 	display: flex;
-	column-gap: 20px;
+	flex-direction: column;
+	row-gap: 20px;
 }
 
 .button {

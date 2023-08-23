@@ -3,8 +3,26 @@ import FirstSlide from "./component/FirstSlide";
 import SecondSlide from "./component/SecondSlide";
 import ThirdSlide from "./component/ThirdSlide";
 import FourthSlide from "./component/FourthSlide";
+import Notification from "./component/Notification";
+import Copyright from "./component/Copyright";
+import $ from "jquery";
 
 export default function App() {
+	$(window).on("load", () => {
+		window.scrollTo(0, 0);
+		const wrapperNotif = $(".wrapper-notif");
+		const notif = $(".notification");
+		setTimeout(() => {
+			wrapperNotif.css({
+				animation: "dialogNotf 0.5s ease-out forwards",
+			});
+		}, 10000);
+
+		notif.on("click", () => {
+			location.reload();
+		});
+	});
+
 	const ref0 = useRef(null);
 	const ref1 = useRef(null);
 	const ref2 = useRef(null);
@@ -22,6 +40,7 @@ export default function App() {
 
 	return (
 		<>
+			<Notification />
 			<FirstSlide
 				slide={ref0}
 				event={() => {
@@ -41,12 +60,8 @@ export default function App() {
 					handleClick(ref3);
 				}}
 			/>
-			<FourthSlide
-				slide={ref3}
-				event={() => {
-					handleClick();
-				}}
-			/>
+			<FourthSlide slide={ref3} />
+			<Copyright />
 		</>
 	);
 }
