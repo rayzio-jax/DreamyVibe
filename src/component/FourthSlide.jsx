@@ -14,12 +14,17 @@ export default function FourthSlide(props) {
 		const wrapper = $(".container");
 		const noBtn = $(".no");
 
-		noBtn.on("click", () => {
-			var maxX = wrapper.width() - noBtn.width() * 500;
-			var maxY = wrapper.height() - noBtn.height() * 500;
+		const maxX = wrapper.width() - noBtn.width();
+		const maxY = wrapper.height() - noBtn.height();
 
-			var newX = Math.random() * maxX;
-			var newY = Math.random() * maxY;
+		console.log("Max wrapper width: ", wrapper.width());
+		console.log("Max wrapper height: ", wrapper.height());
+		console.log("Max pos width: ", maxX);
+		console.log("Max pos height: ", maxY);
+
+		noBtn.on("click", () => {
+			let newX = Math.floor(Math.random() * maxX);
+			let newY = Math.floor(Math.random() * maxY);
 
 			$(noBtn).css({
 				position: "absolute",
@@ -28,21 +33,13 @@ export default function FourthSlide(props) {
 			});
 		});
 
-		noBtn.on("mouseover", () => {
-			const maxX = wrapper.width() - noBtn.width() * 2;
-			const maxY = wrapper.height() - noBtn.height() * 2;
-
-			let newX = Math.random() * maxX;
-			let newY = Math.random() * maxY;
-
-			if (newX > maxX + 10 || newY > maxY + 10) {
-				let newX = newX * 1.5;
-				let newY = newY * 1.5;
-			}
+		noBtn.on("mouseover", async () => {
+			let newX = Math.floor(Math.random() * maxX);
+			let newY = Math.floor(Math.random() * maxY);
 
 			$(noBtn).css({
 				position: "absolute",
-				top: newY + "px",
+				bottom: newY + "px",
 				left: newX + "px",
 			});
 		});

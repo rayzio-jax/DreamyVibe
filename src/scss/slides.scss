@@ -81,6 +81,9 @@
 
 		img {
 			width: 30vw;
+			&:is(.hanako-img) {
+				width: 35vw;
+			}
 		}
 
 		h1 {
@@ -102,6 +105,10 @@
 		.wrapper {
 			img {
 				width: 200px;
+
+				&:is(.hanako-img) {
+					width: 25vw;
+				}
 			}
 
 			h1 {
