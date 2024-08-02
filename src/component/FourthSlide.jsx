@@ -1,100 +1,98 @@
 import Modal from "./Modal";
-import PropTypes from "prop-types";
 import $ from "jquery";
+import PropTypes from "prop-types";
 
 import "../scss/slides.scss";
+import { useState } from "react";
+import { useEffect } from "react";
 
 FourthSlide.propTypes = {
-	slide: PropTypes.any,
-	event: PropTypes.any,
+	slide: PropTypes.shape({
+		current: PropTypes.instanceOf(Element),
+	}),
 };
 
-export default function FourthSlide(props) {
-	$(window).on("load", () => {
+export default function FourthSlide({ slide }) {
+	const [buttonPosition, setButtonPosition] = useState({ top: 0, left: 0 });
+	const [buttonPosMode, setButtonPosMode] = useState("relative");
+	// eslint-disable-next-line no-unused-vars
+	const [modalVisible, setModalVisible] = useState(false);
+
+	useEffect(() => {
+		const handleResize = () => {};
+
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, []);
+
+	const handleButtonClick = () => {
 		const wrapper = $(".container");
 		const noBtn = $(".no");
 
-		const maxX = wrapper.width() - noBtn.width();
-		const maxY = wrapper.height() - noBtn.height();
+		if (wrapper && noBtn) {
+			setButtonPosMode("absolute");
+			const maxX = wrapper.width() - noBtn.width();
+			const maxY = wrapper.height() - noBtn.height();
 
-		console.log("Max wrapper width: ", wrapper.width());
-		console.log("Max wrapper height: ", wrapper.height());
-		console.log("Max pos width: ", maxX);
-		console.log("Max pos height: ", maxY);
+			const newX = Math.floor(Math.random() * maxX);
+			const newY = Math.floor(Math.random() * maxY);
 
-		noBtn.on("click", () => {
-			let newX = Math.floor(Math.random() * maxX);
-			let newY = Math.floor(Math.random() * maxY);
+			setButtonPosition({ top: newY, left: newX });
+		}
+	};
 
-			$(noBtn).css({
-				position: "absolute",
-				top: newY + "px",
-				left: newX + "px",
-			});
-		});
+	const handleButtonMouseOver = () => {
+		const wrapper = $(".container");
+		const noBtn = $(".no");
 
-		noBtn.on("mouseover", async () => {
-			let newX = Math.floor(Math.random() * maxX);
-			let newY = Math.floor(Math.random() * maxY);
+		if (wrapper && noBtn) {
+			setButtonPosMode("absolute");
+			const maxX = wrapper.width() - noBtn.width();
+			const maxY = wrapper.height() - noBtn.height();
 
-			$(noBtn).css({
-				position: "absolute",
-				bottom: newY + "px",
-				left: newX + "px",
-			});
-		});
+			const newX = Math.floor(Math.random() * maxX);
+			const newY = Math.floor(Math.random() * maxY);
 
-		const modalBg = $(".modal-bg");
-		const modalBox = $(".modal");
-		const yesBtn = $("#yes-btn");
-		const closeBtn = $(".closeBtn");
+			setButtonPosition({ top: newY, left: newX });
+		}
+	};
 
-		yesBtn.on("click", () => {
-			modalBg.css({
-				display: "block",
-				animation: "modalBgShow 0.5s ease-in-out forwards",
-			});
-			setTimeout(() => {
-				modalBox.css({
-					display: "block",
-					animation: "modalShow 0.5s ease-in-out forwards",
-				});
-			}, 200);
-		});
+	const handleYesClick = () => {
+		setModalVisible(true);
+	};
 
-		closeBtn.on("click", () => {
-			// location.reload();
-			modalBox.css({
-				animation: "modalClose 0.5s ease-in-out forwards",
-			});
-			setTimeout(() => {
-				modalBox.css({
-					display: "none",
-				});
-				modalBg.css({
-					animation: "modalBgClose 0.5s ease-in-out forwards",
-				});
-			}, 500);
-			setTimeout(() => {
-				modalBg.css({
-					display: "none",
-				});
-			}, 1000);
-		});
-	});
+	const handleCloseClick = () => {
+		setModalVisible(false);
+	};
 
 	return (
-		<div ref={props.slide} className="container">
-			<h1>Jalan yuk, mau ya?</h1>
+		<div ref={slide} className="container">
+			<h1>
+				Let&#39;s go on a date,
+				<br />
+				shall we?
+			</h1>
 			<div className="btn-container">
-				<button id="yes-btn" className="button yes">
-					Mau
+				<button id="yes-btn" className="button yes" onClick={handleYesClick}>
+					Yes (˶ˆᗜˆ˵)
 				</button>
-				<button id="no-btn" className="button no">
-					Gak mau
+				<button
+					id="no-btn"
+					onClick={handleButtonClick}
+					onMouseOver={handleButtonMouseOver}
+					className="button no"
+					style={{
+						position: buttonPosMode,
+						top: `${buttonPosition.top}px`,
+						left: `${buttonPosition.left}px`,
+					}}
+				>
+					Nuu :(
 				</button>
 			</div>
-			<Modal />
+			<Modal onClose={handleCloseClick} modalVisible={modalVisible} />
 		</div>
 	);
 }
