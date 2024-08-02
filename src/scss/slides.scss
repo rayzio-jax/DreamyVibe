@@ -14,8 +14,9 @@
 	transition: all 1s ease-out;
 
 	.downarrow-icon {
+		width: -moz-fit-content;
 		width: fit-content;
-		height: fit-content;
+		height: max-content;
 		position: absolute;
 		bottom: 100px;
 		left: 0;
@@ -37,9 +38,11 @@
 		display: flex;
 		flex-direction: column;
 		row-gap: 20px;
+		height: 100px;
 
 		.button {
-			white-space: nowrap;
+			width: 50vw;
+			white-space: wrap;
 			border-radius: 20px;
 			font-family: "Rubik", sans-serif;
 			outline: none;
@@ -48,7 +51,6 @@
 			box-shadow: 4px 4px 12px rgba($color: #000000, $alpha: 0.2);
 			transition: all 0.2s ease-out;
 			&.yes {
-				padding: 0.5em 1em;
 				background-color: #fff;
 				&:hover {
 					background-color: #5cf60a;
@@ -61,6 +63,7 @@
 				}
 			}
 			&.no {
+				position: relative;
 				background-color: #fff;
 				&hover {
 					background-color: #ed0f0f;
@@ -76,13 +79,25 @@
 	}
 
 	.wrapper {
+		width: -moz-fit-content;
+		width: fit-content;
 		position: absolute;
 		top: 20vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.definition-you {
+			width: 100%;
+			text-align: center;
+			font-size: 2em;
+		}
 
 		img {
 			width: 30vw;
 			&:is(.hanako-img) {
-				width: 35vw;
+				width: 65vw;
+				border-radius: 5%;
 			}
 		}
 
@@ -99,10 +114,16 @@
 		}
 		.btn-container {
 			.button {
+				width: 20vw;
 				font-size: 2em;
 			}
 		}
 		.wrapper {
+			.definition-you {
+				width: 100%;
+				text-align: center;
+				font-size: 2em;
+			}
 			img {
 				width: 200px;
 
