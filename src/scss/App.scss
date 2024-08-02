@@ -1,48 +1,6 @@
 @import "./modal.scss";
 @import "./slides.scss";
 
-@keyframes dialogNotf {
-	0% {
-		left: -230px;
-	}
-	100% {
-		left: 0;
-	}
-}
-
-.wrapper-notif {
-	z-index: 10;
-	position: fixed;
-	top: 0;
-	left: -235px;
-	width: fit-content;
-	background-color: #ff13a8;
-
-	.notification {
-		cursor: pointer;
-		position: relative;
-		color: #fff;
-		display: flex;
-		align-items: center;
-		font-size: 1.2em;
-		padding: 0 60px 0 20px;
-		transition: all 0.2s ease-out;
-
-		&:active {
-			transform: scale(0.9);
-		}
-
-		.check-icon {
-			padding: 0 10px;
-			position: absolute;
-			right: 0;
-			bottom: 10px;
-			font-size: 1.5em;
-			color: #fff;
-		}
-	}
-}
-
 .copyright {
 	z-index: 1;
 	position: fixed;
