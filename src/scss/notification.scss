@@ -1,0 +1,48 @@
+@keyframes dialogNotf {
+	0% {
+		transform: translateX(-250px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.wrapper-notif {
+	z-index: 10;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translateX(-250px);
+	width: -moz-fit-content;
+	width: fit-content;
+	background-color: #ff13a8;
+	border-radius: 0 0 12px 0;
+
+	&.animate {
+		animation: dialogNotf 0.5s ease-out forwards;
+	}
+
+	.notification {
+		cursor: pointer;
+		position: relative;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		font-size: 1.2em;
+		padding: 0 60px 0 20px;
+		transition: all 0.2s ease-out;
+
+		&:active {
+			transform: scale(0.9);
+		}
+
+		.check-icon {
+			padding: 0 10px;
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+			font-size: 1.5em;
+			color: #fff;
+		}
+	}
+}
